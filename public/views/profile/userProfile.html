@@ -1,0 +1,67 @@
+<!DOCTYPE>
+<html>
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+  <title>My Profile</title>
+</head>
+
+<body>
+
+  <div class="container">
+      <h1>Welcome {{welcomename}} ..</h1>
+  <hr>
+
+<div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{currentUser.displayname}}</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" ng-click="edit()" src="http://aiesec.dk/wp-content/uploads/2015/06/avatar-placeholder.png" class="img-circle img-responsive"> </div>
+                <div class=" col-md-9 col-lg-9 ">
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Description</td>
+                        <td>{{currentUser.description}}</td>
+                      </tr>
+                      <tr>
+                        <td>Joined</td>
+                        <td>{{currentUser.joined}}</td>
+                      </tr>
+                        <td>Gender</td>
+                        <td>{{currentUser.gender}}</td>
+                      </tr>
+                        <tr>
+                        <td>Location</td>
+                        <td>{{currentUser.location}}</td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td><a href="mailto:{{currentUser.email}}">{{currentUser.username}}</a></td>
+                      </tr>
+                        <td>Phone Number</td>
+                        <td>{{currentUser.phone}}<br>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <a ng-click="edit()" class="btn btn-primary">Edit My Profile</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+  </body>
+  </html>

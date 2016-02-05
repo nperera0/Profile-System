@@ -1,0 +1,23 @@
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+  <title>Register</title>
+</head>
+
+<h2 class="form-signin-heading">Please sign in</h2>
+
+<div class="alert alert-info">
+    <strong>Info: </strong> {{registermessage}}.
+</div>
+
+<form class="form-signin">
+
+<input  ng-model="user.username"  class="form-control" placeholder="Email address"    type="email"/>
+<input  ng-model="user.password"  class="form-control" placeholder="Password"         type="password"/>
+<input  ng-model="user.password2" class="form-control" placeholder="Confirm Password" type="password"/>
+<button ng-click="register(user)" class="btn btn-primary btn-block">Register</button><br/>
+
+</form>

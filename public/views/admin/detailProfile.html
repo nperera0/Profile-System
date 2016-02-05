@@ -1,0 +1,115 @@
+<!DOCTYPE>
+<html>
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+  <title>Profile</title>
+</head>
+
+<body>
+
+  <div class="container">
+  <h1>User Profile</h1>
+  <hr>
+
+<div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{detailuser.displayname}}</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://aiesec.dk/wp-content/uploads/2015/06/avatar-placeholder.png" class="img-circle img-responsive"> </div>
+                <div class=" col-md-9 col-lg-9 ">
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Description</td>
+                        <td>{{detailuser.description}}</td>
+                      </tr>
+                      <tr>
+                        <td>Joined</td>
+                        <td>{{detailuser.joined}}</td>
+                      </tr>
+                      <tr>
+                        <td>Gender</td>
+                        <td>{{detailuser.gender}}</td>
+                      </tr>
+                      <tr>
+                        <td>Location</td>
+                        <td>{{detailuser.location}}</td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td><a href="mailto:currentUser.email" readonly>{{detailuser.username}}</a></td>
+                      </tr>
+                      <tr>
+                        <td>Phone Number</td>
+                        <td>{{detailuser.phone}}<br>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <span ng-show="currentUser.roles.indexOf('admin') != -1">
+                    <h4>Admin Only Area</h4>
+                    <table class="table table-user-information">
+                      <tbody>
+                    <div>
+                      <tr>
+                        <td>Status</td>
+                        <td>{{arrayToString(detailuser.roles)}}<br/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Pages Viewed</td>
+                        <td>{{arrayToString(detailuser.history)}}<br/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>IP addr</td>
+                        <td>{{detailuser.ip}}<br/>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Device</td>
+                        <td>{{detailuser.device}}<br/>
+                        </td>
+                      </tr>
+                  </div>
+                </tbody>
+              </table>
+
+                    <a ng-click="edit(detailuser)" class="btn btn-primary">Edit Profile</a>
+                    <span ng-show="detailuser.roles.indexOf('user') != -1">
+                      <a ng-click="remove(detailuser)" class="btn btn-danger">Remove User</a>
+                    </span>
+                  </span>
+
+                  <span ng-show="currentUser.roles.indexOf('superadmin') != -1">
+                      <span ng-show="detailuser.roles.indexOf('user') != -1">
+                        <a ng-click="asadmin(detailuser)" class="btn btn-warning">Assign Admin</a>
+                      </span>
+                      <br/>
+                      <br/>
+                      <span ng-show="detailuser.roles.indexOf('admin') != -1">
+                          <a ng-click="usadmin(detailuser)" class="btn btn-warning">Unassign Admin</a>
+                      </span>
+                  </span>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  <hr>
+  </body>
+  </html>
